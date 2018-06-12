@@ -90,5 +90,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
     });
+    console.log("returning post")
     return Post;
 };

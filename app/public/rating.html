@@ -322,7 +322,10 @@
         "background-color": "#7ED321"
       });
     });
-    $("#submit-button").on("click", function() {
+    $("#submit-button").on("click", function(e) {
+      e.preventDefault();
+      console.log(this)
+
       var categoryString = {
         photo: $("#photo").val().trim(),
         name: $("#name").val().trim(),
@@ -339,9 +342,16 @@
         date: $(".date").val().trim(),
         impression: $(".impression").val().trim(),
       }
-      $.get("/api/rating" + categoryString, function(data) {
-        console.log("data was uploaded");
-      });
+      // $.get("/api/rating" + categoryString, function(data) {
+      //   console.log("data was uploaded");
+      // });
+      $.ajax({
+            type: "POST",
+             url: "/api/rating",
+            data: categoryString
+            }).then(function()  {
+              console.log("data was POSTED !+!+!+!+!+!+!+!+!+!+")
+            })
     });
   </script>
 </body>
