@@ -41,54 +41,54 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         appearance: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
+            type: DataTypes.INTEGER,
+            allowNull: true
+            // validate: {
+            //     len: [1, 255]
+            // }
         },
-        conversation: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
-        manners: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
-        attraction: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
-        smoochable: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
-        interaction: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
-        impression: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 255]
-            }
-        },
+        // conversation: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
+        // manners: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
+        // attraction: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
+        // smoochable: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
+        // interaction: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
+        // impression: {
+        //     type: DataTypes.INTEGER
+        //     // allowNull: false,
+        //     // validate: {
+        //     //     len: [1, 255]
+        //     // }
+        // },
     });
     console.log("returning post")
     return Post;

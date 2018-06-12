@@ -127,7 +127,7 @@
 
             </fieldset>
             <br>
-            <p>Conversation</p>
+            <!-- <p>Conversation</p>
             <fieldset class="conversation rating">
               <input type="radio" id="field2_star5" name="rating2" value="5" />
               <label class="full" for="field2_star5"></label>
@@ -287,7 +287,7 @@
               <input type="radio" id="field2_star1" name="rating2" value="1" />
               <label class="full" for="field2_star1"></label>
 
-            </fieldset>
+            </fieldset> -->
             <br>
             <form>
               Any additional information you would like to share about your date:<br>
@@ -333,14 +333,14 @@
         location: $("#location").val().trim(),
         initiation: $("#initiation").val().trim(),
         paid: $("#paid").val().trim(),
-        appearance: $(".appearance").val().trim(),
-        conversation: $(".conversation").val().trim(),
-        manners: $(".manners").val().trim(),
-        attraction: $(".attraction").val().trim(),
-        smoochable: $(".smoochable").val().trim(),
-        interaction: $(".interaction").val().trim(),
-        date: $(".date").val().trim(),
-        impression: $(".impression").val().trim(),
+        appearance: $("#field1_star1").val()
+        // conversation: $(".conversation").val().trim(),
+        // manners: $(".manners").val().trim(),
+        // attraction: $(".attraction").val().trim(),
+        // smoochable: $(".smoochable").val().trim(),
+        // interaction: $(".interaction").val().trim(),
+        // date: $(".date").val().trim(),
+        // impression: $(".impression").val().trim(),
       }
       // $.get("/api/rating" + categoryString, function(data) {
       //   console.log("data was uploaded");
