@@ -1,17 +1,18 @@
 var path = require("path");
-var friendsArray = require('../data/friends.js');
+var friendsArray = require('../data/search.js');
 var db = require("../../models");
 
 module.exports = function (app) {
 
     // display table data in json format
-    app.get('/api/friends', function (req, res) {
+    app.get('/api/search', function (req, res) {
         res.json(friendsArray);
 
     });
 
-    app.post('/api/friends', function (req, res) {
+    app.post('/api/search', function (req, res) {
         var singleInput = req.body;
+        console.log(req.body);
         //  console.log('singleInput = ' + JSON.stringify(singleInput));
 
         var singleFeedback = singleInput.singleScores;
@@ -20,6 +21,7 @@ module.exports = function (app) {
         // Compute best friend match
         var singleMatchName = '';
         var singleMatchPhoto = '';
+        var singleEmail = "";
         var difference = Infinity;
 
         // Examine all existing friends in the list
@@ -47,14 +49,30 @@ module.exports = function (app) {
 
             }
         }
-
-        // Add new user
-        friendsArray.push(singleInput);
-
-        // Send appropriate response
-        res.json({ status: 'OK', singleName: singleMatchName, singlePhoto: singleMatchPhoto });
+        db.Date.create({
+            singleName: req.body.singleName,
+            singlePhoto: req.body.inglePhoto,
+            singleEmail: req.body.singleEmail,
+            singleScores: req.body.singleScores,
+        
+        })
+            .then(function (dbPost) {
+                console.log("hey dude the res redirect should be coing ")
+                res.redirect("/search");
+                
+            })
+            .catch(function (err) {
+                
+                console.log(err);
+            })
     });
+        
+
+
+      
+ 
     app.post("/api/clear", function () {
+
         // Empty out the arrays of data
         friendsArray = [];
 
