@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var date = sequelize.define("Date", {
+    var Dates = sequelize.define("Dates", {
 
         // Creates a "Date" model that matches up with DB
         singleName: {
@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             unique: true
             // validate: {
             //     isEmail: true
-            // }
+            //  }
         },
 
         // TO DO: Add option to associate date score
@@ -29,5 +29,5 @@ module.exports = function (sequelize, DataTypes) {
        
     });
 
-    return date;
+    return Dates;
 };

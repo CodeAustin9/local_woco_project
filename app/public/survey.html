@@ -355,7 +355,6 @@
 
         };
 
-        console.log(singleInput);
 
         $.post("/api/search", singleInput).done(function (data) {
             console.log('api search just posted')
@@ -373,7 +372,6 @@
 
             $("#singleName").text(data.singleName);
             $("#singlePhoto").attr("src", data.singlePhoto);
-            $("#singleEmail").text(data.singleEmail);
             $("#results-modal").modal("toggle");
 
 
