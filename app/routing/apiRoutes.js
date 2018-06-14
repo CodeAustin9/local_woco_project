@@ -69,85 +69,10 @@ module.exports = function (app) {
                     
                     console.log(err);
                 })
-       
-        // Check newMentorPoints and compare it to mentorData 
-
-        // var newMentorPoints = userInput.scores;
-        // var sameName = '';
-        // var sameEmail = "";
-        // var samePicture = '';
-        // var mentorGap = 5000;
-
-        // // Loop through mentor list
-        // for (var i = 0; i < mentorsData.length; i++) {
-
-        //     // Check gap in points to compare mentors in list
-        //     var gap = 0;
-        //     for (var j = 0; j < newMentorPoints.length; j++) {
-        //         gap += (Math.abs(parseInt(mentorsData[i].scores[j]) - parseInt(userInput.scores[j])));
-        //     }
-
-        //     // If difference in score is low, then a match is found
-        //     if (gap < mentorGap) {
-        //         // console.log("Found your mentor = " + gap);
-        //         // console.log("Mentor's name = " + mentorsData[i].name);
-        //         // console.log("Mentor's email = " + mentorsData[i].email);
-        //         // console.log("Mentor's image = " + mentorsData[i].photo);
-
-        //         // Create new mentor
-        //         mentorGap = gap;
-        //         sameName = mentorsData[i].name;
-        //         sameEmail = mentorsData[i].email;
-        //         samePicture = mentorsData[i].photo;
-        //     }
-        // }
-
-        // Add new user
+  
         friendsArray.push(userInput);
-        // db.Dates.create(userInput)
-        //     .then(data => {
-        //         console.log("from .then", data.dataValues.scores)
-        //     })
-        //     .catch(err => console.log(err))
-        // Sending object sameName and samePicture to backend
-        // Sending response back to mentors-survey.html
-
-
-        // res.json({ sameName: sameName, sameEmail: sameEmail, samePicture: samePicture });
+  
     });
-
-
-
-
-        // Examine all existing friends in the list
-        // for (var i = 0; i < friendsArray.length; i++) {
-        //     // console.log('friend = ' + JSON.stringify(friends[i]));
-
-        //     // Compute differences for each question
-        //     var diff = 0;
-        //     for (var j = 0; j < singleFeedback.length; j++) {
-        //         console.log(friendsArray[i].singleScores[j])
-        //         console.log(singleFeedback[j])
-        //         diff += Math.abs(friendsArray[i].singleScores[j] - singleFeedback[j]);
-        //     }
-        //     // console.log('diff = ' + diff);
-
-        //     // If lowest difference, record the friend match
-        //     if (diff < difference) {
-        //         // console.log('Closest match found = ' + diff);
-        //         // console.log('Friend name = ' + friends[i].name);
-        //         // console.log('Friend image = ' + friends[i].photo);
-        //         console.log("working");
-        //         difference = diff;
-        //         singleMatchName = friendsArray[i].singleName;
-        //         singleMatchPhoto = friendsArray[i].singlePhoto;
-
-        //     }
-       
-    
-        
-
-
       
  
     app.post("/api/clear", function () {
@@ -185,3 +110,4 @@ app.post("/api/rating", function (req, res) {
 });
 
 };
+// ===========================================================
