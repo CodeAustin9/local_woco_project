@@ -61,7 +61,7 @@ module.exports = function (app) {
                 .then(function (dbPost) {
                     console.log(dbPost);
                     console.log("==================== hey dude the res redirect should be coing ")
-                    res.end();
+                    // res.json()
                     // res.redirect("/search");
                     //  res.json(dbPost); 
                 })
