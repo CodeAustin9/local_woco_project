@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         // TO DO: Add option to associate date score
         singleScores: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
 
         },
 

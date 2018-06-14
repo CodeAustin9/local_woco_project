@@ -10,49 +10,44 @@ module.exports = function (app) {
 
     });
 
-    
-
-
-
-    app.get('/api/search', function (req, res) {
-
-        // Display mentors data in json format
-        res.json(friendsArray);
-    });
-
     app.post('/api/search', function (req, res) {
         var userInput = req.body;
         console.log(userInput)
         var dateMatch = {
-            singleName: "",
-            singlePhoto: "",
-            singleEmail: "",
-            singleScores: 1000
+                singleName: req.body.singleName,
+                singlePhoto: req.body.singlePhoto,
+                singleEmail: req.body.singleEmail,
+                singleScores: req.body.singleScores.join(""),
         }
+        // var match;
         //===========================================================================
-
+        
         db.Dates.findAll({})
             .then(data => {
                 for (var i = 0; i < data.length; i++) {
-                    console.log(`======================= friend name: ${data[i].singleName}`)
-                    console.log("userInput: " + userInput[i]);
-                    
-                    
-                    var diff = Math.abs(userInput[i].singleScores - data[i].singleScores)
+                    console.log(`======================= date name: ${data[i].singleName}`)
+                    console.log("userInput: " + userInput);
+                    var match = data[i]  
+                    // do I need this?
+                    var diff = Math.abs(userInput.singleScores - match.singleScores)
                     console.log("Diff: " + diff);
                     if (diff < dateMatch.singleScores) {
-                        dateMatch.singleName = friend.singleName;
-                        dateMatch.singlePhoto = friend.singlePhoto;
-                        dateMatch.singleEmail = friend.singleEmail;
-                        dateMatch.singleScores = diff;
+                        match.singleName = data[i].singleName;
+                        match.singlePhoto = data[i].singlePhoto;
+                        match.singleEmail = data[i].singleEmail;
+                        match.singleScores = diff;
                     }
                 }
-                res.json(dateMatch)
+                console.log("working");
+                console.log(dateMatch);
+                console.log(match);
+                res.json(match)
                 // loop over the data and compare the scores in data with the userInput score
             })
             .catch(err => {
                 console.log(err)
             })
+        
             //=============================================================================
             var scoresString = req.body.singleScores.join("");
             console.log("string: " + scoresString)
@@ -68,7 +63,7 @@ module.exports = function (app) {
                     console.log("==================== hey dude the res redirect should be coing ")
                     res.end();
                     // res.redirect("/search");
-                    // res.json(dbPost); 
+                    //  res.json(dbPost); 
                 })
                 .catch(function (err) {
                     
@@ -190,4 +185,3 @@ app.post("/api/rating", function (req, res) {
 });
 
 };
-
